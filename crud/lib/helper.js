@@ -1,8 +1,8 @@
-const BASE_URL = "https://ytw7-opulent-journey-v77j7gq5gr6cxw99-3000.preview.app.github.dev"
+const BASE_URL = "https://ytw7-opulent-journey-v77j7gq5gr6cxw99-3000.preview.app.github.dev/"
 
 // all user
 export const getUsers = async () => {
-    const response = await fetch(`${BASE_URL}/api/users`)
+    const response = await fetch(`${BASE_URL}api/users`)
     const json = await response.json()
 
     return json;

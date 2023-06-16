@@ -30,15 +30,27 @@ export async function getUser(req, res){
 
 // post : http://localhost:3000/api/users
 export async function postUser(req, res){
+    // try {
+    //     const formData = req.body;
+    //     if(!formData) return res.status(404).json( { error: "Form Data Not Provided...!"});
+    //     Users.create( formData, function(err, data){
+    //         return res.status(200).json(data)
+    //     })
+    // } catch (error) {
+    //     return res.status(404).json({ error })
+    // }
     try {
-        const formData = req.body;
-        if(!formData) return res.status(404).json( { error: "Form Data Not Provided...!"});
-        Users.create( formData, function(err, data){
-            return res.status(200).json(data)
-        })
-    } catch (error) {
-        return res.status(404).json({ error })
-    }
+            const formData = req.body;
+            if(!formData) return res.status(404).json( { error: "Form Data Not Provided...!"});
+            Users.create( formData ).then((res) => {
+                res.status(200).json(data)
+              })
+              .catch((error) => {
+                res.status(404).json({ error })
+              })
+        } catch (error) {
+            return res.status(404).json({ error })
+        }
 }
 
 
